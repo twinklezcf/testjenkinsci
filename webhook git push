@@ -1,0 +1,26 @@
+# webhook git push
+{
+    "ref":"refs\/heads\/master",
+    "after":"65039e81678ab6d9f158d5620da18aae917ca278",
+    "before":"6029350e6ebf0b6aa9d2fd57938f1e806abf9ffc",
+    "repository":{
+        "id":"123",
+        "name":"my-git-repository",
+        "full_name":"my-git-repository"
+    },
+    "pusher":{
+        "name":"jdoe",
+        "email":"john.doe@tuleap.example.com"
+    },
+    "sender":{
+        "id":102,
+        "uri":"users/102",
+        "user_url":"/users/jdoe",
+        "real_name":"John Doe",
+        "display_name":"John Doe (jdoe)",
+        "username":"jdoe",
+        "ldap_id":"102",
+        "avatar_url":"http://tuleap.example.com/users/jdoe/avatar.png",
+        "is_anonymous":false
+    }
+}

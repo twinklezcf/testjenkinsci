@@ -1,0 +1,23 @@
+# Configure: Tuleap server URL
+mytuleap="http://infbjvm333.cn.oracle.com"
+# Configure: id of your repository
+repo_id=Bootstrap
+# Configure: paste the token generated in repository admin
+token="81a1b6d6ad024aebc29e2d3fb6897610e8f88df54e9202653079a3c378ff8364"
+
+# Configure: add your own tests instead of 'make all'
+# following is the test to send either "Success" (S) or "Failure" (F) to
+# Tuleap server
+if make all; then
+    status="S"
+else
+    status="F"
+fi
+
+# REST call, you shouldn't need to modify this
+rev=$(git rev-parse HEAD)
+branch="${GIT_BRANCH#*/}"
+curl "$mytuleap/api/git/$repo_id/build_status" \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+     --data-binary "{ \"status\": \"$status\", \"branch\": \"$branch\", \"commit_reference\": \"$rev\", \"token\": \"$token\"}"
